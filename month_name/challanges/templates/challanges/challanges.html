@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% load static %}
+{% block css_files %}
+    <link rel="stylesheet" href="{% static "challanges/response.css" %}">
+    <link rel="stylesheet" href="{% static "challanges/includes/header.css" %}">
+{% endblock css_files %}
+{% block title_text %}
+    {{ title|title }}
+{% endblock title_text %}
+{% block content %}
+    {% include "challanges/includes/header.html" with active_page="Response" %}
+    <h1>{{ title|title }} Month</h1>
+    {% if response is not None %}
+        <h2>{{ response }}</h2>
+    {% else %}
+        <h2>You're in If Statement</h2>
+    {% endif %}
+{% endblock content %}
