@@ -1,8 +1,33 @@
 {% extends "base.html" %}
-
+{% load static %}
 {% block title_text %}
-Bismillahir Rahmanir Rahim
+    Ashraf' Blog
 {% endblock title_text %}
+{% block css_files %}
+    <link rel="stylesheet" href="{% static "blog/index.css" %}">
+    <link rel="stylesheet" href="{% static "blog/post.css" %}">
+{% endblock css_files %}
 {% block content %}
-<h2>Allahu Akber</h2>
+    <section id="welcome">
+        <header>
+            <img src="{% static "blog/images/woods.jpg" %}" alt="Ashraf - The Authon of This Blog">
+            <h2>Ashraf's Blog</h2>
+        </header>
+        <p>Hi, I am Ashraf and I love to blog about tech and the world!</p>
+    </section>
+    <section id="latest-posts">
+        <h2>My Latest Thoughts</h2>
+        <ul>
+            {% for post in posts %}
+                {% include "blog/includes/post.html" %} 
+            {% endfor %}
+        </ul>
+    </section>
+    <section id="about">
+        <h2>What I Do</h2>
+        <p> </p>
+        <p>
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Assumenda magni totam ipsa, in reprehenderit perferendis alias consequuntur eaque molestiae dolores?
+        </p>
+    </section>
 {% endblock content %}
