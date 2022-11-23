@@ -1,12 +1,22 @@
 {% extends "book_outlet/base.html" %}
-
 {% block title_text %}
     Bismillahir Rahmanir Rahim
 {% endblock title_text %}
 {% block content %}
     <ul>
         {% for book in books %}
-            <li>{{ book.title }} (Rating: {{ book.rating }})</li>
+            <li>
+                {% comment %} <a href="{% url "book-detail" book.id %}"> {% endcomment %}
+                <a href="{{ book.get_absolute_url }}">
+                    {{ book.title }}
+                </a> 
+                    (Rating: {{ book.rating }})
+            </li>
         {% endfor %}
     </ul>
+    <hr/>
+    <h3>Total Available Books: {{ total_books_count }}</h3>
+    <h3>Average Rating: {{ average_rating.rating__avg }}</h3>
+    <h3>Minimum Rating: {{ min_rating.rating__min }}</h3>
+    <h3>Maximum Rating: {{ max_rating.rating__max }}</h3>
 {% endblock content %}
