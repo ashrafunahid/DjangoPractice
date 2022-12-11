@@ -1,3 +1,5 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,6 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Your Reviews</title>
+    <link rel="stylesheet" href="{% static 'reviews/style.css' %}">
 </head>
 <body>
     <form action="/" method="POST">
@@ -12,8 +15,17 @@
             <p>Please enter some value greater than 5 character</p>
         {% endif %}
         {% csrf_token %}
-        <label for="username">Your Name</label>
-        <input id="username" name="username" type="text">
+
+        {% for fields in form %}
+        <div class="form-control {% if fields.errors %}errors{% endif %}">
+            {{ fields.label_tag }}
+            {{ fields }}
+            {{ fields.errors }}
+        </div>
+        {% endfor %}
+        {% comment %} {{ form }} {% endcomment %}
+        {% comment %} <label for="username">Your Name</label>
+        <input id="username" name="username" type="text"> {% endcomment %}
         <button type="submit">Send</button>
     </form>
 </body>
