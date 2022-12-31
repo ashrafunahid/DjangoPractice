@@ -1,37 +1,24 @@
 from django.shortcuts import render
+from .models import Meetup
 
 # Create your views here.
 
 
 def index(request):
-    meetups = [
-        {
-            'title': "First Meetups", 
-            'location': 'New York', 
-            'slug': 'first-meetups'
-        },
-        {
-            'title': "Second Meetups", 
-            'location': 'Paris', 
-            'slug': 'second-meetups'
-        },
-        {
-            'title': "Third Meetups", 
-            'location': 'Dhaka', 
-            'slug': 'third-meetups'
-        },
-    ]
+    meetups = Meetup.objects.all()
     return render(request, "meetups/index.html", {
-        'show_meetups': True,
         'meetups': meetups,
     })
 
-def meetup_details(request):
-    selected_meetup = {
-        'title': 'A First Meetup',
-        'description': 'This is First Meetup',
-    }
-    return render(request, "meetups/meetup-detail.html", {
-        'meetup_title': selected_meetup['title'],
-        'meetup_description': selected_meetup['description']
-    })
+def meetup_details(request, meetup_slug):
+    try:
+        selected_meetup = Meetup.objects.get(slug=meetup_slug)
+        return render(request, "meetups/meetup-details.html", {
+            'meetup_found': True,
+            'meetup_title': selected_meetup.title,
+            'meetup_description': selected_meetup.description
+        })
+    except Exception as exc:
+        return render(request, "meetups/meetup-details.html", {
+            'meetup_found': False,
+        })
