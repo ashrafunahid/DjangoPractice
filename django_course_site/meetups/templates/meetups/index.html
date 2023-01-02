@@ -13,8 +13,12 @@
     <p>Find the one that best suits your needs!</p>
 {% endblock header_content %}
 {% block body %}
-    <h2>Upcoming Meetups!</h2>
-    {% for meetup in meetups %}
-        {% include 'meetups/includes/meetup-item.html' with title=meetup.title location='Location' slug=meetup.slug %}
-    {% endfor %}
+    <section>
+        <h2>Upcoming Meetups!</h2>
+        <ol>
+            {% for meetup in meetups %}
+                {% include 'meetups/includes/meetup-item.html' with title=meetup.title image=meetup.image.url location=meetup.location.name slug=meetup.slug %}
+            {% endfor %}
+        </ol>
+    </section>
 {% endblock body %}
