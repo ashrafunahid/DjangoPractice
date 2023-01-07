@@ -1,8 +1,7 @@
-from django.shortcuts import render
 from django.shortcuts import redirect,render
 from django.contrib.auth import login,logout,authenticate
 from .forms import *
-from .models import QuestionModel
+from .models import *
 from django.http import HttpResponse
  
 # Create your views here.
@@ -43,9 +42,9 @@ def home(request):
  
 def addQuestion(request):    
     if request.user.is_staff:
-        form=addQuestionform()
+        form=addQuestionForm()
         if(request.method=='POST'):
-            form=addQuestionform(request.POST)
+            form=addQuestionForm(request.POST)
             if(form.is_valid()):
                 form.save()
                 return redirect('/')
