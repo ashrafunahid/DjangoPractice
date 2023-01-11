@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0f3471cd-8eb0-45da-b8ec-92b0f36129da" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/QuizApp/Quiz/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/QuizApp/Quiz/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/QuizApp/Quiz/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/QuizApp/Quiz/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -34,7 +33,12 @@
       <option name="presentableId" value="Default" />
       <updated>1673084966096</updated>
       <workItem from="1673084971146" duration="6000" />
+      <workItem from="1673341939743" duration="1961000" />
+      <workItem from="1673344223116" duration="507000" />
     </task>
     <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="2" />
   </component>
 </project>
